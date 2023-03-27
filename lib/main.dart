@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> transactions = [
     Transaction('t1', 'New Shoes', 69.99, DateTime.now()),
-    Transaction('t2', 'Weekly Grosaries', 15.99, DateTime.now())
+    Transaction('t2', 'Grosaries', 15.99, DateTime.now())
   ];
 
   @override
@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("DEMO"),
       ),
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
@@ -55,9 +55,28 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          Card(
-            child: Text("Transaction"),
-          ),
+          Column(
+            children: transactions.map((e) {
+              return Card(
+                child: Row(
+                  children: [
+                    Container(
+                      child: Text(
+                        e.amount.toString(),
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        Text(e.title),
+                        Text(e.dateTime.toString()),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+          )
         ],
       ),
     );

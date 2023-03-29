@@ -31,7 +31,8 @@ class _MyHomePageState extends State<MyHomePage> {
     Transaction('t1', 'New Shoes', 69.99, DateTime.now()),
     Transaction('t2', 'Grosaries', 15.99, DateTime.now())
   ];
-
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("DEMO"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
+        // mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
             width: double.infinity,
@@ -53,6 +54,32 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Chart",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                    controller: titleController,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                    controller: amountController,
+                  ),
+                  TextButton(
+                    child: Text(
+                      "Add Transaction",
+                      style: TextStyle(color: Colors.deepPurple),
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
               ),
             ),
           ),

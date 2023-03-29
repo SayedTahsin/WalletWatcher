@@ -12,5 +12,4 @@ class Transaction {
     this.amount,
     this.dateTime,
   );
-
 }

@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 // ignore: use_key_in_widget_constructors
 class NewTransaction extends StatelessWidget {
   // const NewTransaction({super.key});
-
+  final Function addTx;
+  NewTransaction(this.addTx);
   final titleController = TextEditingController();
   final amountController = TextEditingController();
   @override
@@ -30,7 +31,12 @@ class NewTransaction extends StatelessWidget {
                 "Add Transaction",
                 style: TextStyle(color: Colors.deepPurple),
               ),
-              onPressed: () {},
+              onPressed: () {
+                addTx(
+                  titleController.text,
+                  double.parse(amountController.text),
+                );
+              },
             ),
           ],
         ),

@@ -34,26 +34,28 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("DEMO"),
       ),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            width: double.infinity,
-            margin: EdgeInsets.all(5),
-            child: Card(
-              color: Colors.amber,
-              elevation: 10,
-              margin: EdgeInsets.all(10),
-              child: Text(
-                "Chart",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.all(5),
+              child: Card(
+                color: Colors.amber,
+                elevation: 10,
+                margin: EdgeInsets.all(10),
+                child: Text(
+                  "Chart",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
             ),
-          ),
-          UserTransactions(),
-        ],
+            UserTransactions(),
+          ],
+        ),
       ),
     );
   }

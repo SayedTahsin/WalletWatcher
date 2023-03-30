@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 
-// ignore: use_key_in_widget_constructors
 class NewTransaction extends StatelessWidget {
   // const NewTransaction({super.key});
   final Function addTx;

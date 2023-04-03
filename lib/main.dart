@@ -18,38 +18,39 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expenses',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
-              .copyWith(secondary: Colors.amber),
-          fontFamily: 'Quicksand',
-          textTheme: ThemeData.light().textTheme.copyWith(
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
+            .copyWith(secondary: Colors.amber),
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              titleLarge: TextStyle(
+                fontFamily: 'Quicksand',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+        appBarTheme: AppBarTheme(
+          toolbarTextStyle: ThemeData.light()
+              .textTheme
+              .copyWith(
                 titleLarge: TextStyle(
-                  fontFamily: 'Quicksand',
-                  fontSize: 18,
+                  fontFamily: 'OpenSans',
+                  fontSize: 10,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
-          appBarTheme: AppBarTheme(
-            toolbarTextStyle: ThemeData.light()
-                .textTheme
-                .copyWith(
-                  titleLarge: TextStyle(
-                    fontFamily: 'OpenSans',
-                    fontSize: 10,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-                .bodyText2,
-            titleTextStyle: ThemeData.light()
-                .textTheme
-                .copyWith(
-                  titleLarge: TextStyle(
-                    fontFamily: 'Quicksans',
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-                .headline6,
-          )),
+              )
+              .bodyText2,
+          titleTextStyle: ThemeData.light()
+              .textTheme
+              .copyWith(
+                titleLarge: TextStyle(
+                  fontFamily: 'Quicksans',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+              .headline6,
+        ),
+      ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
@@ -63,8 +64,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransaction = [
-    Transaction('t1', 'New Shoes', 69.99, DateTime.now()),
-    Transaction('t2', 'Grosaries', 15.99, DateTime.now()),
+    // Transaction('t1', 'New Shoes', 69.99, DateTime.now()),
+    // Transaction('t2', 'Grosaries', 15.99, DateTime.now()),
   ];
   void _addNewTransaction(String txTitle, double txAmounnt) {
     final newTx = Transaction(

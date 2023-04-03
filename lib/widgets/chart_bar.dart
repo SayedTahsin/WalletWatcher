@@ -1,9 +1,6 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors, prefer_const_constructors, sized_box_for_whitespace
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ChartBar extends StatelessWidget {
   final String label;
@@ -15,7 +12,9 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('\$${spedingAmount.toStringAsFixed(0)}'),
+        FittedBox(
+          child: Text('\$${spedingAmount.toStringAsFixed(0)}'),
+        ),
         SizedBox(
           height: 4,
         ),

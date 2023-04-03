@@ -1,6 +1,8 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, unused_element
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:personal_expense_tracker/widgets/chart.dart';
 import 'package:personal_expense_tracker/widgets/new_transaction.dart';
 import 'package:personal_expense_tracker/widgets/transaction_list.dart';
 
@@ -67,6 +69,17 @@ class _MyHomePageState extends State<MyHomePage> {
     // Transaction('t1', 'New Shoes', 69.99, DateTime.now()),
     // Transaction('t2', 'Grosaries', 15.99, DateTime.now()),
   ];
+
+  List<Transaction> get _recentTransactions {
+    return _userTransaction.where((tx) {
+      return tx.dateTime.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
+
   void _addNewTransaction(String txTitle, double txAmounnt) {
     final newTx = Transaction(
         DateTime.now().toString(), txTitle, txAmounnt, DateTime.now());
@@ -105,20 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              width: double.infinity,
-              margin: EdgeInsets.all(5),
-              child: Card(
-                color: Theme.of(context).primaryColor,
-                elevation: 10,
-                margin: EdgeInsets.all(10),
-                child: Text(
-                  "Chart",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
+            Chart(_recentTransactions),
             TransactionList(_userTransaction)
           ],
         ),
